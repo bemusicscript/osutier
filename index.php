@@ -114,16 +114,17 @@ function search() {
     $("#result").show();
     $("#permalink").attr("href", "#");
     $("#permalink").text("https://osu.stypr.com/tier/?id=" + decodeURIComponent(username) + "&type=" + type);
-    document.getElementById("permalink").addEventListener("click", function() {
-        copyTextToClipboard($("#permalink").text());
-        alert("Copied to clipboard!")
-    }, false);
     $("#twitter_button").html('&nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?text=' + encodeURIComponent('Check out my tier in osu!') + '&url=https://osu.stypr.com/tier/%3fid=' + username + '%26type=' + type + '" id="twitter_share" class="twitter-share-button" data-show-count="false">Tweet</a>');
     twttr.widgets.load();
     $(".share_link").show();
     $("#result").show();
     return false
 }
+
+document.getElementById("permalink").addEventListener("click", function() {
+    copyTextToClipboard($("#permalink").text());
+    alert("Copied to clipboard!")
+}, false);
 
 function copyTextToClipboard(text) {
     var textArea = document.createElement("textarea");
